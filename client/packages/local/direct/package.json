@@ -1,0 +1,36 @@
+{
+    "name": "direct",
+    "sencha": {
+        "namespace": "Direct",
+        "type": "code",
+        "toolkit": "",
+        "creator": "Dmitry Kazarin",
+        "summary": "Short summary",
+        "detailedDescription": "Long description of package",
+        "version": "1.0.0",
+        "compatVersion": "1.0.0",
+        "format": "1",
+        "slicer": {
+            "js": [{
+                "path": "${package.dir}/sass/example/custom.js",
+                "isWidgetManifest": true
+            }, {
+                "path": "${package.dir}/resources/sockjs.min.js",
+                "remote": true
+            }]
+        },
+        "js" : [{
+            "path": "resources/sockjs.js",
+            "bundle": true
+        }],
+        "output": "${package.dir}/build",
+        "local": true,
+        "classpath": [
+            "${package.dir}/src"
+        ],
+        "overrides": [
+            "${package.dir}/overrides"
+        ],
+        "requires": []
+    }
+}

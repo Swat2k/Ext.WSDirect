@@ -1,0 +1,14 @@
+{
+  "name": "direct",
+  "version": "1.0.0",
+  "description": "extjs direct websocket implementation ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dmitry Kazarin",
+  "license": "MIT",
+  "dependencies": {
+    "rpc-websockets": "^4.0.0"
+  }
+}
