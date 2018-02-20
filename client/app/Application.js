@@ -17,7 +17,7 @@ Ext.define('WSDirect.Application', {
 
         Ext.direct.Manager.addProvider({
             type: 'ws',
-            url: 'http://localhost:8080',
+            url: 'http://localhost:3000/direct',
         }).on('connected', function() {
             
             

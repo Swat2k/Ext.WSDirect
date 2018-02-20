@@ -1,25 +1,22 @@
-var WebSocketServer = require('rpc-websockets').Server
+var httpServer = require('http').createServer(),
+    sockjsServer = require('sockjs').createServer({
+        sockjs_url: "https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"
+    });
 
-// instantiate Server and start listening for requests
-var server = new WebSocketServer({
-  port: 8080,
-  host: 'localhost'
-})
+httpServer.addListener('upgrade', function(req,res){
+    res.end();
+});
 
-// register an RPC method
-server.register('sum', function(params) {
-  return params[0] + params[1]
-})
+sockjsServer.on('connection', function(conn) {
+    conn.on('data', function(message) {
+        conn.write(message);
+    });
+});
 
-// create an event
-server.event('feedUpdated')
+sockjsServer.installHandlers(httpServer, {
+    prefix:'/direct'
+});
 
-// get events
-console.log(server.eventList())
+console.log(' [*] Listening on 0.0.0.0:3000' );
 
-// emit an event to subscribers
-server.emit('feedUpdated')
-
-// close the server
-server.close()
-
+httpServer.listen(3000, '0.0.0.0');

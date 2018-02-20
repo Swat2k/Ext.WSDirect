@@ -23,6 +23,7 @@ Ext.define('Direct.direct.wsDirectProvider', {
         'Ext.direct.wsExceptionEvent',
         'Ext.direct.RemotingMethod',
         'Ext.direct.Manager',
+
         'Direct.direct.wsRemotingMethod',
         'Direct.direct.wsTransaction',
     ],
@@ -88,8 +89,6 @@ Ext.define('Direct.direct.wsDirectProvider', {
     
     constructor: function(config) {
         var me = this;
-
-        debugger
 
         // Становимся Observable
         me.mixins.observable.constructor.call(me, config);

@@ -35,9 +35,9 @@ Ext.define('Direct.direct.wsTransaction', {
             payload.params = this.args[0]
         }
 
-        if (!me.provider.isAuthorized) {
-            payload.params.token = ".eJyrVoovSC3KTcxLzStRsiopKk3VUSotTi2Kz0xRsjI0tjSHcvMSc1OVrJSyM1KVICIQgWolhSSgcKJRRo5SbS0AAOIZWw.DIdIYg.zdKJP3Iqq0B5sPCnmL7HusQ2R60";
-        } 
+        if (Ext.Object.isEmpty(payload.params)) {
+            delete payload.params;
+        }
 
         return payload;
     },
